@@ -1,5 +1,6 @@
-class cssUtil {
-    static testProperty(property) {
+export default const cssUtil = {
+    // 检测浏览器是否具有某属性
+    testProperty(property) {
         var root = document.documentElement;
 
         if (property in root.style) {
@@ -8,9 +9,9 @@ class cssUtil {
         }
 
         root.classList.add('no-' + property.toLowerCase());
-    }
-
-    static testValue(id, value, property) {
+    },
+    // 检测某个具体的属性值是否支持
+    testValue(id, value, property) {
         var dummy = document.createElement('p');
         dummy.style[property] = value;
 
@@ -23,6 +24,3 @@ class cssUtil {
         return false;
     }
 }
-
-
-export default cssUtil;
