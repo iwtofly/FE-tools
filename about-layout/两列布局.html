@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>两列布局</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix { *zoom: 1;}
+        .clearfix:after{ content: ""; display: block; height: 0; visibility:hidden; clear: both;}
+        #header{
+            height: 40px;
+            background-color: green;
+            width: 100%;
+        }
+        #wrapper {
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .left {
+            float: left;
+            width: 220px;
+            height: 600px;
+            background-color: #ccc;
+        }
+        .right {
+            /*float: left;*/
+            margin-left: 220px;
+            background-color: pink;
+            height: 600px;
+
+        }
+        #footer{
+            margin: 0 auto;
+            height: 40px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">两栏布局左侧固定宽度，右侧自适应</div>
+    <div id="main" class="clearfix">
+        <div class="left">浮动</div>
+        <div class="right">margin-left: 固定宽度</div>
+    </div>
+    <div id="footer">foot</div>
+</div>
+</body>
+</html>

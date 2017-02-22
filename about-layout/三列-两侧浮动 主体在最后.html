@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>三列布局</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix { *zoom: 1;}
+        .clearfix:after{ content: ""; display: block; height: 0; visibility:hidden; clear: both;}
+        #header{
+            height: 40px;
+            background-color: green;
+            width: 100%;
+        }
+        #wrapper {
+            width: 70%;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .left {
+            float: left;
+            width: 220px;
+            height: 600px;
+            background-color: #ccc;
+        }
+        .middle {
+            margin-left: 220px;
+            margin-right: 220px;
+            height: 600px;
+            background-color: yellow;
+        }
+        .right {
+            /*float: left;*/
+            width: 220px;
+            float: right;
+            background-color: pink;
+            height: 600px;
+        }
+        #footer{
+            margin: 0 auto;
+            height: 40px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">两边侧栏固定宽度，中间自适应</div>
+    <div id="main" class="clearfix">
+        <div class="left">左浮动</div>
+        <div class="right">右浮动</div>
+        <div class="middle">middle： html内容放最后，margin左右固定</div>
+    </div>
+    <div id="footer">foot</div>
+</div>
+</body>
+</html>
