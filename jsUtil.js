@@ -1,6 +1,6 @@
-export default const jsUtil = {
+export default class jsUtil {
     // 事件绑定
-    addHandler(elem, type, handler) {
+    static addHandler(elem, type, handler) {
         if (elem.addEventListener) {
             elem.addEventListener(type, handler, false);
         } else if (elem.attachEvent) {
@@ -8,9 +8,9 @@ export default const jsUtil = {
         } else {
             elem['on' + type] = handler;
         }
-    },
+    }
     // 移除事件绑定
-    removeHandler(elem, type, handler) {
+    static removeHandler(elem, type, handler) {
         if (elem.removeEventListener) {
             elem.addEventListener(type, handler, false);
         } else if (elem.detachEvent) {
@@ -18,40 +18,40 @@ export default const jsUtil = {
         } else {
             elem['on' + type] = null;
         }
-    },
+    }
     // 获取事件
-    getEvent(event) {
+    static getEvent(event) {
         return event || window.event;
-    },
+    }
     // 获取事件目标
-    getTarget(event) {
+    static getTarget(event) {
         return event.target || event.srcElment;
-    },
+    }
     // 阻止默认行为
-    preventDefault(event) {
+    static preventDefault(event) {
         if (event.preventDefault) {
             event.preventDefault();
         } else {
             event.returnValue = false;
         }
-    },
+    }
     // 阻止事件冒泡
-    stopPropagation(event) {
+    static stopPropagation(event) {
         if (event.stopPropgation) {
             event.stopPropgation();
         } else {
             event.cancelBubble = true;
         }
-    }，
+    }
 
     // 对象的深度拷贝
     // 缺点：只能拷贝扁平，不能拷贝函数，Date等
-    deepClone1(obj) {
+    static deepClone1(obj) {
         return JSON.parse(JSON.stringify(obj));
     }
 
     // 深度拷贝升级版，可拷贝函数
-    deepClone2(obj) {
+    static deepClone2(obj) {
         var objClone;
         if (obj.constructor == Object) {
             objClone = new obj.constructor();
@@ -72,6 +72,5 @@ export default const jsUtil = {
         objClone.valueOf = Obj.valueOf;
         return objClone;
     }
-    
 
 }
