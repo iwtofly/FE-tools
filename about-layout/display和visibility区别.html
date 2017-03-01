@@ -28,10 +28,17 @@
             visibility: hidden; 
             /*hidden是继承属性，子孙节点消失是由于继承了hidden，通过设置visibility：visible，可以让子孙节点显示。*/
         }
+        .hh {
+            height: 300px; 
+            /*standard mode下超出部分会溢出，默认overflow:visible; */
+            /*quirks mode下 超出后 父元素也会跟着调整*/
+        }
     </style>
 </head>
 <body>
-    <div class="box1">box1</div>
+    <div class="box1">box1
+    <div class="sub hh">sub</div> 
+    </div>
     <!-- F12还能看到box2 但是没有做渲染 -->
     <div class="box2">box2
         <div class="sub">sub</div> 

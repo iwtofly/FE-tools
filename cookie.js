@@ -14,7 +14,7 @@ class CookieUtil{
             return cookieReal;
         }
         var list = all.split(';');
-        for (var i = 0; i < list; i++) {
+        for (var i = 0; i < list.length; i++) {
             var cookie = list[i];
             var p = cookie.indexOf('=');
             var name = cookie.substring(0, p);
@@ -22,5 +22,6 @@ class CookieUtil{
             value = decodeURIComponent(value);
             cookieReal[name] = value;
         }
+        return cookieReal;
     }
 }
